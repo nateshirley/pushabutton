@@ -1,11 +1,11 @@
-[programs.localnet]
-pushabutton = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+[programs.devnet]
+pushabutton = "GnpXzkc1vc76ekZR1WeNfJdLv8Pcg2zYMxU1H3EJrgEd"
 
 [registry]
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "localnet"
+cluster = "devnet"
 wallet = "/Users/nathanshirley/.config/solana/id.json"
 
 [scripts]
