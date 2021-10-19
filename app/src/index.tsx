@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {StrictMode} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import WalletWrapper from './WalletWrapper';
+import { BrowserRouter } from 'react-router-dom';
+
+require('@solana/wallet-adapter-react-ui/styles.css');
+require('./index.css');
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <StrictMode>
+    <BrowserRouter>
+        <WalletWrapper />
+    </BrowserRouter>
+  </StrictMode>,
   document.getElementById('root')
 );
 
