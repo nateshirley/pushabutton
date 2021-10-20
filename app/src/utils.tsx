@@ -3,7 +3,6 @@ import { Provider, Program, utils } from '@project-serum/anchor';
 import { PublicKey, Keypair, Connection, RpcResponseAndContext, AccountInfo } from "@solana/web3.js";
 import { Interface } from "readline";
 
-const Anchor = require('@project-serum/anchor');
 const PACK_PROGRAM_ID = new PublicKey("5GstP3i7wvo1NEiPDUa9TcdqFFFYaaZDATX2WyVquzT4");
 export const TOKEN_METADATA_PROGRAM_ID = new PublicKey("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s");
 
@@ -110,3 +109,29 @@ const getAuthPda = async () => {
     );
 }
 
+export const timeSince = (date: Date) => {
+    let now = new Date()
+    var seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    var interval = seconds / 31536000;
+    if (interval > 1) {
+        return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+        return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+        return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+        return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+        return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+}

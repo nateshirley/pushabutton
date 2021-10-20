@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
 
 .logo {
     width: 70px;
     height: 70px;
-}
-
-.connect {
-    background-color: red;
-    color: blue;
 }
 
 
@@ -17,7 +16,31 @@
     margin-right: auto;
     width: 90%;
     max-width: 540px;
-    font-family: "Arial";
+    font-family: "Inconsolata", sans-serif;
     margin-bottom: 150px;
   }
   
+
+.mutual-pushes-header {
+    font-weight: 800;
+    font-size: 48px;
+}
+.mutual-push-index {
+    margin-top: 32px;
+    font-size: 17px;
+    font-weight: 700;
+}
+.mutual-push-paragraph {
+    margin-top: 6px;
+    font-size: 17px;
+    font-weight: 700;
+}
+.mutual-push-link {
+    color: black;
+}
+.mutual-push-link:visited {
+    color: purple;
+}
+.mutual-push-link:hover {
+    color: red;
+}
