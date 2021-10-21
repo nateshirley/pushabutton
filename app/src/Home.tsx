@@ -103,7 +103,7 @@ const Home: FC<Props> = ({ getProvider }) => {
     const linkToTransaction = (signature: String) => {
         return (
             <a href={`https://solscan.io/tx/${signature}?cluster=devnet`}
-                className="mutual-push-link" target="_blank" rel="noreferrer noopener">pushed the button</a>
+                className="mutual-push-link" target="_blank" rel="noreferrer noopener">pressed the button</a>
         );
     }
     const timestampString = (blockTime: number) => {
@@ -194,7 +194,7 @@ const Home: FC<Props> = ({ getProvider }) => {
                 }
                 body = (
                     <div className="push-greeting">
-                        if you want to push the button, you've come to the right place
+                        if you want to press the button, you've come to the right place
                         <div className="connect-button-parent">
                             <WalletMultiButton style={connectStyle}>CONNECT WALLET</WalletMultiButton>
                         </div>
@@ -203,7 +203,7 @@ const Home: FC<Props> = ({ getProvider }) => {
             } else {
                 body = (
                     <div className="push-greeting">
-                        <button className="central-push-button" onClick={pushButton}>PUSH THE BUTTON</button>
+                        <button className="central-push-button" onClick={pushButton}>PRESS THE BUTTON</button>
                     </div>
                 );
             }
@@ -211,7 +211,7 @@ const Home: FC<Props> = ({ getProvider }) => {
         case AppState.SharedPushes:
             body = (
                 <div>
-                    <div className="mutual-push-header">shared pack pushes</div>
+                    <div className="mutual-push-header">shared pack presses</div>
                     <div className="mutual-push-element">{mutualPushElement}</div>
                     <div>
                         <button className="back-home-button" onClick={backToPushing}>back to the button</button>
