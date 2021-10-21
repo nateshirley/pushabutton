@@ -115,23 +115,36 @@ export const timeSince = (date: Date) => {
 
     var interval = seconds / 31536000;
     if (interval > 1) {
-        return Math.floor(interval) + " years";
+        let roundedUnits = Math.floor(interval);
+        return trimmedString(roundedUnits, roundedUnits + " years");
     }
     interval = seconds / 2592000;
     if (interval > 1) {
-        return Math.floor(interval) + " months";
+        let roundedUnits = Math.floor(interval);
+        return trimmedString(roundedUnits, roundedUnits + " months");
     }
     interval = seconds / 86400;
     if (interval > 1) {
-        return Math.floor(interval) + " days";
+        let roundedUnits = Math.floor(interval);
+        return trimmedString(roundedUnits, roundedUnits + " days");
     }
     interval = seconds / 3600;
     if (interval > 1) {
-        return Math.floor(interval) + " hours";
+        let roundedUnits = Math.floor(interval);
+        return trimmedString(roundedUnits, roundedUnits + " hours");
     }
     interval = seconds / 60;
     if (interval > 1) {
-        return Math.floor(interval) + " minutes";
+        let roundedUnits = Math.floor(interval);
+        return trimmedString(roundedUnits, roundedUnits + " minutes");
     }
     return Math.floor(seconds) + " seconds";
+}
+
+const trimmedString = (roundedUnits: number, string: string) => {
+    if (roundedUnits === 1) {
+        return string.substring(0, string.length - 1);
+    } else {
+        return string
+    }
 }

@@ -2,13 +2,7 @@ import { WalletAdapterNetwork, WalletError } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import {
-    getLedgerWallet,
     getPhantomWallet,
-    getSlopeWallet,
-    getSolflareWallet,
-    getSolletWallet,
-    getSolletExtensionWallet,
-    getTorusWallet,
 } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
 import React, {useCallback, useMemo, FC } from 'react';
@@ -16,7 +10,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import NavigationBar from './NavigationBar';
 import Notification from './Notification';
 import ComponentSwitch from './ComponentSwitch';
-
+import "./global.css"
 
 const WalletWrapper: FC = () => {
     const network = WalletAdapterNetwork.Devnet;

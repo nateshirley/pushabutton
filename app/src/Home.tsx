@@ -10,7 +10,15 @@ import bs58 from 'bs58';
 import { buildConnectedMembersDict, timeSince } from "./utils"
 import { link } from "fs";
 import qs from "qs";
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import PuffLoader from "react-spinners/PuffLoader";
+import { css } from "@emotion/react";
 
+const override = css`
+display: block;
+margin: 0 auto;
+border-color: white;
+`;
 
 type Props = {
     getProvider: () => Provider
@@ -123,10 +131,7 @@ const Home: FC<Props> = ({ getProvider }) => {
                 );
             });
             setMutualPushElement(
-                <div>
-                    <div className="mutual-pushes-header">shared pack pushes</div>
-                    <div>{pushItems}</div>
-                </div>
+                <div>{pushItems}</div>
             );
             setAppState(AppState.SharedPushes);
         }
@@ -134,7 +139,7 @@ const Home: FC<Props> = ({ getProvider }) => {
     const fetchMutualPushes = async (walletPubKey: PublicKey) => {
         let connectedMembers = await buildConnectedMembersDict(walletPubKey, provider.connection);
         let fetchedPushes: MutualPush[] = [];
-        let signatures = await provider.connection.getConfirmedSignaturesForAddress2(programID, { limit: 40 }, "confirmed");
+        let signatures = await provider.connection.getConfirmedSignaturesForAddress2(programID, { limit: 1000 }, "confirmed");
         setAppState(AppState.Fetching);
         await Promise.all(signatures.map(async (signatureInfo) => {
             let txResponse = await provider.connection.getTransaction(signatureInfo.signature, { commitment: "confirmed" });
@@ -164,32 +169,41 @@ const Home: FC<Props> = ({ getProvider }) => {
         }));
         configureMutualPushElement(fetchedPushes);
     }
-
-    //set it up same as before it will be better
-    //wallet in url
-
     const backToPushing = () => {
         history.push("");
         setAppState(AppState.Push);
     }
+
+
 
     const defaultWalletKey = new PublicKey("BB17xR1QTpJLKHN294ikxd5YgVg7kLsHUeXh9kG4HKFi");
     let body = <div></div>;
     switch (appState) {
         case AppState.Push:
             if (!wallet.connected) {
+                let connectStyle = {
+                    borderRadius: '0px',
+                    color: "white",
+                    backgroundColor: "#000069",
+                    border: '0px solid #00288F',
+                    fontFamily: "Inconsolata",
+                    fontWeight: 900,
+                    width: '100%',
+                    height: '100%',
+                    fontSize: '21px'
+                }
                 body = (
-                    <div className="home-info" style={{ marginTop: "50px" }}>
-                        first, select devnet wallet ↗
+                    <div className="push-greeting">
+                        if you want to push the button, you've come to the right place
+                        <div className="connect-button-parent">
+                            <WalletMultiButton style={connectStyle}>CONNECT WALLET</WalletMultiButton>
+                        </div>
                     </div>
                 )
             } else {
                 body = (
-                    <div>
-                        <button className="default-button" onClick={pushButton}>push the button</button>
-                        <div>
-                            <button className="default-button" onClick={() => fetchMutualPushes(defaultWalletKey)}>fetch pushes for connected wallet</button>
-                        </div>
+                    <div className="push-greeting">
+                        <button className="central-push-button" onClick={pushButton}>PUSH THE BUTTON</button>
                     </div>
                 );
             }
@@ -197,28 +211,34 @@ const Home: FC<Props> = ({ getProvider }) => {
         case AppState.SharedPushes:
             body = (
                 <div>
-                    <div>{mutualPushElement}</div>
+                    <div className="mutual-push-header">shared pack pushes</div>
+                    <div className="mutual-push-element">{mutualPushElement}</div>
                     <div>
-                        <button className="default-button" onClick={backToPushing}>back to the button</button>
+                        <button className="back-home-button" onClick={backToPushing}>back to the button</button>
                     </div>
                 </div>
             );
             break;
         case AppState.Transaction:
             body = (
-                <div>waiting</div>
+                <div>
+                    <div>approving tx...</div>
+                    <div style={{ marginTop: "24px" }}><PuffLoader loading={true} size={31} css={override} color={"white"}/></div>
+                </div>
             );
             break;
         case AppState.Fetching:
             body = (
-                <div>fetching</div>
+                <div>fetching...</div>
             );
             break;
     }
 
     return (
-        <div className="component-parent">
-            {body}
+        <div className="home-outer">
+            <div className="body-parent">
+                {body}
+            </div>
         </div>
     );
 

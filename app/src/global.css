@@ -1,46 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500;600;700;800;900&display=swap');
+
 
 .logo {
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
+}
+
+.body-parent {
+  padding-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  max-width: 540px;
+  font-family: "Inconsolata", sans-serif;
+  margin-bottom: 150px;
+  color: white;
+}
+
+.push-greeting {
+  margin-top: 100px;
+  font-weight: 800;
+  font-size: 21px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: "Inconsolata", sans-serif;
+
+}
+.connect-button-parent {
+    width: 80%;
+    max-width: 280px;
+    height: 72px;
+    margin: 50px auto 0 auto;
+    display: block;
 }
 
 
-.component-parent {
-    padding-top: 20px;
+
+
+.nav-wallet-button-outer {
+    width:100%;
+    text-align: left;
+}
+.nav-wallet-button {
+    display: inline-block;
+    margin: 30px 15px 0px 30px;
+}
+.nav-wallet-button.disconnect {
+    display: inline-block;
+    margin: 30px 0px 0px 15px;
+}
+
+
+.central-push-button {
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
-    max-width: 540px;
+    text-align: center;
+    background-color: #000069;
+    color: white;
+    font-weight: 800;
+    font-size: 55px;
+    width: 95%;
+    max-width: 423px;
+    height: 132px;
+    cursor: pointer;
+    border: 6px solid #FF1717;
+    box-shadow: 0px 2px 8px #83395D;
     font-family: "Inconsolata", sans-serif;
-    margin-bottom: 150px;
-  }
-  
 
-.mutual-pushes-header {
+}
+.mutual-push-element {
+    background-color: #0C2A91;
+    font-weight: 800;
+    font-size: 20;
+    padding: 13px 40px 40px 40px;
+    margin-top: 30px;
+}
+.mutual-push-header {
     font-weight: 800;
     font-size: 48px;
-}
-.mutual-push-index {
+  }
+  .mutual-push-index {
     margin-top: 32px;
     font-size: 17px;
     font-weight: 700;
-}
-.mutual-push-paragraph {
+  }
+  .mutual-push-paragraph {
     margin-top: 6px;
     font-size: 17px;
     font-weight: 700;
-}
-.mutual-push-link {
-    color: black;
-}
-.mutual-push-link:visited {
-    color: purple;
-}
-.mutual-push-link:hover {
-    color: red;
-}
+  }
+  .mutual-push-link {
+    color: white;
+  }
+  .mutual-push-link:visited {
+    color: white;
+  }
+  .mutual-push-link:hover {
+    color: #FF1717;
+  }
+
+  .back-home-button {
+      background-color: #2760F2;
+      color: white;
+      font-family: "Inconsolata", sans-serif;
+      font-weight: 700;
+      margin-top: 20px;
+      border: 0px;
+      height: 24px;
+      width: 140px;
+      cursor: pointer;
+  }
