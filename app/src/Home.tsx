@@ -222,7 +222,7 @@ const Home: FC<Props> = ({ getProvider }) => {
         case AppState.Transaction:
             body = (
                 <div>
-                    <div>approving tx...</div>
+                    <div>waiting for completed tx...</div>
                     <div style={{ marginTop: "24px" }}><PuffLoader loading={true} size={31} css={override} color={"white"}/></div>
                 </div>
             );
