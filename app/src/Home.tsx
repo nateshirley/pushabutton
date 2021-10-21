@@ -133,8 +133,14 @@ const Home: FC<Props> = ({ getProvider }) => {
             setMutualPushElement(
                 <div>{pushItems}</div>
             );
-            setAppState(AppState.SharedPushes);
         }
+        else {
+            setMutualPushElement(
+                <div>none of your friends have pressed the button</div>
+            );
+        }
+        setAppState(AppState.SharedPushes);
+
     }
     const fetchMutualPushes = async (walletPubKey: PublicKey) => {
         let connectedMembers = await buildConnectedMembersDict(walletPubKey, provider.connection);
