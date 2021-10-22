@@ -36,6 +36,17 @@
     display: block;
 }
 
+.button-explainer {
+  text-align: center;
+  font-size: 14px;
+  margin: 90px 80px 0px 80px;
+  font-weight: 500;
+  color: #7b95d8;
+}
+
+.packs-link {
+  color: #8ca1d6;
+}
 
 
 

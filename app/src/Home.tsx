@@ -210,6 +210,9 @@ const Home: FC<Props> = ({ getProvider }) => {
                 body = (
                     <div className="push-greeting">
                         <button className="central-push-button" onClick={pushButton}>PRESS THE BUTTON</button>
+                        <div className="button-explainer"> 
+                            when you press the button, we'll use <a href="https://www.madpacks.xyz/" target="_blank" rel="noopener noreferrer" className="packs-link">your packs</a> to show which of your friends have pressed it too
+                        </div>
                     </div>
                 );
             }
