@@ -90,10 +90,10 @@ const Home: FC<Props> = ({ getProvider }) => {
     }
     const linkToSharedPacks = (sharedPacks: PublicKey[], pushedBy: PublicKey) => {
         let displayString = "";
-        if (sharedPacks.length > 1) {
+        if (sharedPacks.length === 1) {
             displayString = "you share 1 pack"
         } else {
-            displayString = `you share ${displayString.length} packs`
+            displayString = `you share ${sharedPacks.length} packs`
         }
         return (
             <a href={`https://www.madpacks.xyz/find?key=${pushedBy.toBase58()}`}
