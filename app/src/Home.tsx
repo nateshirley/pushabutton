@@ -80,7 +80,7 @@ const Home: FC<Props> = ({ getProvider }) => {
 
     const truncatedKey = (pubkey: PublicKey) => {
         let b58 = pubkey.toBase58();
-        return (b58.slice(0, 4) + "..." + b58.slice(b58.length - 5, b58.length - 1));
+        return (b58.slice(0, 4) + "..." + b58.slice(b58.length - 5, b58.length));
     }
     const linkToPusher = (pushedBy: PublicKey) => {
         return (
@@ -182,7 +182,6 @@ const Home: FC<Props> = ({ getProvider }) => {
 
 
 
-    const defaultWalletKey = new PublicKey("BB17xR1QTpJLKHN294ikxd5YgVg7kLsHUeXh9kG4HKFi");
     let body = <div></div>;
     switch (appState) {
         case AppState.Push:
@@ -210,7 +209,7 @@ const Home: FC<Props> = ({ getProvider }) => {
                 body = (
                     <div className="push-greeting">
                         <button className="central-push-button" onClick={pushButton}>PRESS THE BUTTON</button>
-                        <div className="button-explainer"> 
+                        <div className="button-explainer">
                             when you press the button, we'll use <a href="https://www.madpacks.xyz/" target="_blank" rel="noopener noreferrer" className="packs-link">your packs</a> to show which of your friends have pressed it too
                         </div>
                     </div>
@@ -232,7 +231,7 @@ const Home: FC<Props> = ({ getProvider }) => {
             body = (
                 <div>
                     <div>waiting for completed tx...</div>
-                    <div style={{ marginTop: "24px" }}><PuffLoader loading={true} size={31} css={override} color={"white"}/></div>
+                    <div style={{ marginTop: "24px" }}><PuffLoader loading={true} size={31} css={override} color={"white"} /></div>
                 </div>
             );
             break;
